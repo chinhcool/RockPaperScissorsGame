@@ -7,16 +7,16 @@ import PlayerCard from './components/PlayerCard';
 const CHOICES = [
   {
     name: 'Rock',
-    uri: 'http://pngimg.com/uploads/stone/stone_PNG13622.png'
+    uri: 'https://i.ibb.co/nQjhdgY/rock.jpg'
   },
   {
     name: 'Paper',
-    uri: 'https://www.stickpng.com/assets/images/5887c26cbc2fc2ef3a186046.png'
+    uri: 'https://i.ibb.co/fMNBV5t/paper.jpg'
   },
   {
     name: 'Scissors',
     uri:
-      'http://pluspng.com/img-png/png-hairdressing-scissors-beauty-salon-scissors-clipart-4704.png'
+      'https://i.ibb.co/py009Fh/scissors.jpg'
   }
 ];
 
@@ -28,19 +28,20 @@ const getRoundOutcome = (userChoice, computerChoice) => {
     console.log('Result laaaaa: ');
     console.log(userChoice);
     console.log(computerChoice);
+    // console.log(resultText);
 
-    
+
     let resultText;
   
-    if (userChoice === 'rock') {
-      resultText = computerChoice === 'scissors' ? 'Victory!' : 'Defeat!';
-    }
-    if (userChoice === 'paper') {
-      resultText = computerChoice === 'rock' ? 'Victory!' : 'Defeat!';
-    }
-    if (userChoice === 'scissors') {
-      resultText = computerChoice === 'paper' ? 'Victory!' : 'Defeat!';
-    }
+    if (userChoice === 'Rock') {
+      resultText = computerChoice === 'Scissors' ? 'Victory!' : 'Defeat!';
+    };
+    if (userChoice === 'Paper') {
+      resultText = computerChoice === 'Rock' ? 'Victory!' : 'Defeat!';
+    };
+    if (userChoice === 'Scissors') {
+      resultText = computerChoice === 'Paper' ? 'Victory!' : 'Defeat!';
+    };
   
     if (userChoice === computerChoice) 
       resultText = 'Tie game!';
@@ -60,7 +61,7 @@ export default class App extends React.Component{
     const foundChoice = CHOICES.find(choice => choice.name === playerChoice);
     const computerChoice = randomComputerChoice();
     const result =  getRoundOutcome(foundChoice.name, computerChoice.name)
-    // console.log(result);
+    console.log(result);
 
 
     this.setState({
@@ -96,7 +97,7 @@ export default class App extends React.Component{
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#ffbea8',
   },
   gameStatusWrapper: {
     flex: 0.2,
@@ -111,6 +112,6 @@ const styles = StyleSheet.create({
     flex: 0.4,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#FFF7F3',
   },
 });
